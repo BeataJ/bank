@@ -20,9 +20,10 @@ func main() {
 
 		// wantsCheckBalance := choice == 1
 
-		if choice == 1 {
+		switch choice {
+		case 1:
 			fmt.Println("Your balance is", accountBalance)
-		} else if choice == 2 {
+		case 2:
 			fmt.Print("Your deposit: ")
 			var depositAmount float64
 			fmt.Scan(&depositAmount)
@@ -35,29 +36,70 @@ func main() {
 
 			accountBalance += depositAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
-		} else if choice == 3 {
+		case 3:
 			fmt.Print("Your withdraw: ")
 			var withdrawAmount float64
 			fmt.Scan(&withdrawAmount)
 
 			if withdrawAmount <= 0 {
 				fmt.Println("Invalid amount. Must be greater than 0.")
-				return
+				// return
+				continue
 			}
 
 			if withdrawAmount > accountBalance {
 				fmt.Println("Invalid amount. You can't withdraw more than you have.")
-				return
+				// return
+				continue
 			}
 
 			accountBalance -= withdrawAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
-		} else {
+		default:
 			fmt.Println("Goodbye!")
-			// return
-			break
+			fmt.Println("Thanks for choosing our bank")
+			return
 		}
 	}
+	// 	if choice == 1 {
+	// 		fmt.Println("Your balance is", accountBalance)
+	// 	} else if choice == 2 {
+	// 		fmt.Print("Your deposit: ")
+	// 		var depositAmount float64
+	// 		fmt.Scan(&depositAmount)
 
-	fmt.Println("Thanks for choosing our bank")
+	// 		if depositAmount <= 0 {
+	// 			fmt.Println("Invalid amount. Must be greater than 0.")
+	// 			// return
+	// 			continue
+	// 		}
+
+	// 		accountBalance += depositAmount
+	// 		fmt.Println("Balance updated! New amount:", accountBalance)
+	// 	} else if choice == 3 {
+	// 		fmt.Print("Your withdraw: ")
+	// 		var withdrawAmount float64
+	// 		fmt.Scan(&withdrawAmount)
+
+	// 		if withdrawAmount <= 0 {
+	// 			fmt.Println("Invalid amount. Must be greater than 0.")
+	// 			// return
+	// 			continue
+	// 		}
+
+	// 		if withdrawAmount > accountBalance {
+	// 			fmt.Println("Invalid amount. You can't withdraw more than you have.")
+	// 			// return
+	// 			continue
+	// 		}
+
+	// 		accountBalance -= withdrawAmount
+	// 		fmt.Println("Balance updated! New amount:", accountBalance)
+	// 	} else {
+	// 		fmt.Println("Goodbye!")
+	// 		// return
+	// 		break
+	// 	}
+	// }
+
 }
