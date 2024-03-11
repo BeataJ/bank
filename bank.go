@@ -20,7 +20,7 @@ func getBalanceFromFile() (float64, error) {
 	balance, err := strconv.ParseFloat(balanceText, 64)
 
 	if err != nil {
-		return 1000, errors.New("failed to parse stred balance value")
+		return 1000, errors.New("failed to parse balance value")
 	}
 
 	return balance, nil
@@ -38,6 +38,8 @@ func main() {
 		fmt.Println("ERROR")
 		fmt.Println(err)
 		fmt.Println("---------------")
+		// panic("Can't continue, sorry.")
+		// return
 	}
 
 	fmt.Println("Welcome to Go Bank!")
